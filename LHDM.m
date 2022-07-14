@@ -50,7 +50,11 @@ ls_opts.UT = true;
 
 % Initialize vector of n zeros and Infs (to be used later)
 nZeros = zeros(n,1);
-wz = zeros(nmezzi,1);
+if positrick
+    wz = zeros(nmezzi,1);
+else
+    wz = zeros(n,1);
+end
 
 % Initialize set of non-active columns to null
 if positrick
@@ -413,7 +417,7 @@ while ( go_on && (totiter < itmax) )
        end
        % update cardinality of P
    end
-   
+
    x=z;
 
    resid = d - C(:,IP)*x(IP); 
@@ -473,4 +477,4 @@ else
   end;
 end;
 
-
+end
