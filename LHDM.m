@@ -1,4 +1,4 @@
-function [x,resnorm,exitflag, outeriter, iter_vec] = LHDM_v4(C,d,options,verbose) 
+function [x,resnorm,exitflag, outeriter, iter_vec] = LHDM(C,d,options,verbose) 
 
 % LHDM solves underdetermined linear least squares with nonnegativity constraints
 % using Lawson-Hanson with Deviation Maximization algorithm, described in 
@@ -50,11 +50,7 @@ ls_opts.UT = true;
 
 % Initialize vector of n zeros and Infs (to be used later)
 nZeros = zeros(n,1);
-if positrick
-    wz = zeros(nmezzi,1);
-else
-    wz = zeros(n,1);
-end
+wz = zeros(nmezzi,1);
 
 % Initialize set of non-active columns to null
 if positrick
@@ -79,7 +75,7 @@ tmptime = 0;
 % Check if options was created with optimoptions
 if ~isempty(options) 
     if ~isa(options,'struct')
-    error('MATLAB:LDHM:ArgNotStruct',...
+        error('MATLAB:LDHM:ArgNotStruct',...
         getString(message('MATLAB:LHDM:commonMessages:ArgNotStruct')));
     end
     if isfield(options,'itmax')
@@ -417,7 +413,7 @@ while ( go_on && (totiter < itmax) )
        end
        % update cardinality of P
    end
-
+   
    x=z;
 
    resid = d - C(:,IP)*x(IP); 
@@ -461,7 +457,7 @@ if totiter == itmax,
     if itmax < 500, keyboard, end
 end
 
-end
+return
 
 
 
@@ -477,4 +473,5 @@ else
   end;
 end;
 
-end
+
+
