@@ -1,7 +1,9 @@
 # LHDM
 Lawson-Hanson with Deviation Maximization
 
-This is the companion software of the article "The Lawson-Hanson Algorithm with Deviation Maximization: Finite Convergence and Sparse Recovery" by M.Dessole, M.Dell'Orto and F.Marcuzzi
+This is the companion software of the article
+
+M. Dessole, M. Dell’Orto, F. Marcuzzi, The lawson-hanson algorithm with deviation maximization: Finite convergence and sparse recovery, *Numerical Linear Algebra with Applications* (2023). https://doi.org/)10.1002/nla.2490.
 
 It contains:
 - a main file "LHDM.m" with LHDM algorithm implementation;
